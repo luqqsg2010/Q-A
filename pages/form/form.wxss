@@ -1,0 +1,21 @@
+/* pages/form/form.wxss */
+wx-button {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+wx-label {
+  display: block;
+  margin-top: 10rpx;
+}
+.section__title text {
+  margin-left: 20rpx;
+  position: relative;
+}
+.placeholder{
+  font-size: 28rpx;
+  color: #CCCCCC;
+}
+.uploadView{
+display: flex;
+justify-content: center;
+}

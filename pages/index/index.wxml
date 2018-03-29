@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="container">
+  <view  class="usermotto">
+  <map class="map" scale="18" longitude="120.64387" latitude="31.969785"></map>
+  </view>
+  <view class="l1">
+  <view class="itemView"><text>用户名：</text>
+    <input class="input" name="userName" placeholder="请输入用户名" 
+    bindinput="userNameInput" />
+  </view>
+  <view class="itemView"><text>密　码：</text>
+    <input class="input" password placeholder="请输入密码"
+     bindinput="passWdInput" />
+  </view>
+  <view class="unlogin">  <navigator redirect url="../form/password"><text>忘记密码？</text></navigator></view>
+<view class='vt'>
+<button  style="opacity: {{opacity}};color: white; background-color: #ff8719;"
+ disabled="{{disabled}}" loading="{{loginLoading}}"   bindtap='login'>登 录</button>
+</view>
+<view class='vt'>
+ <navigator redirect url="../form/register"><button  style="color:#ff8719; border: 1px solid rgb(200, 200, 100);" 
+ loading="{{regLoading}}" plain="true"  >注 册</button></navigator>
+</view>
+</view>
+</view>

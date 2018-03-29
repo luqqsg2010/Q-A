@@ -1,0 +1,57 @@
+/**index.wxss**/
+.l1{
+    margin-top: 20px;
+     height: 150px;
+}
+.map{
+   width: 370px;
+   height:350px;
+}
+.itemView{
+  margin-top: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 50px;
+  
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+}
+.unlogin{
+  color:#ff8719;
+  font-size: 30rpx;
+  display:flex;
+  flex-direction:row-reverse;
+}
+.vt{  
+  margin-top: 16px;
+}
+.itemView2{
+  margin-top: 30px;
+  height: 50px;
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+}
+.input{
+ width: 250px;
+ height: 40px;
+ border: 1px solid rgb(200, 200, 100);
+ border-top-width:0px;
+ border-right-width:0px;
+border-left-width:0px;
+}
+.button{
+  width: 100%;
+}
+.text{
+ width: 80px;
+}
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 2px;
+  align-items: center;
+}

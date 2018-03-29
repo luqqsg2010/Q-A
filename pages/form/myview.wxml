@@ -1,0 +1,63 @@
+<view class="page">
+<text hidden='true'>{{cuser}}</text>
+  <view class="sub_hd {{bg_img}}" >
+   <text class="sub_title">工单号：SG0000{{keyword}}</text>
+    <text class="sub_title">{{title}}</text>
+  </view>
+  <view class='view' wx:if="{{filepath!='null'}}" data-filepath="{{filepath}}" catchtap="showImage">
+          <view style='width:5%'></view>
+                <image src="{{loadpath}}{{filepath}}" mode='aspectFit' style='width:100rpx;height:100rpx'></image>
+              </view>
+  <view class='clean'><view class='line'></view></view>
+  <view style='height:40rpx'></view>
+  <form  catchsubmit="formSubmit" catchreset="formReset">
+    <view class="section" >
+     <view wx:for="{{results}}"  wx:key="unique">
+        <view  class='view'>
+          <view><text>{{item.createtime}}</text></view>
+          <view style='width:200rpx'></view>
+          <view><text>{{item.userid}}</text></view>
+        </view>
+        <view  class='view'>
+          <view style='width:5%'></view>
+          <view style='width:90%'><text>{{item.content}}</text></view>
+        </view>
+        <view class='view' wx:if="{{item.filepath!=null}}" data-filepath="{{item.filepath}}"  catchtap="showImage">
+          <view style='width:5%'></view>
+                <image src="{{loadpath}}{{item.filepath}}" mode='aspectFit' style='width:100rpx;height:100rpx'></image>
+              </view>
+        <view class='clean'><view class='dashed'></view></view>
+     </view>
+    </view>
+    <view class='clean'><view class='line'></view></view>
+       <view class="sub_hd"> <text class="sub_title">回复</text>
+       <text class="sub_button" catchtap='cleanContent'>清除内容</text>
+       <view><textarea name="content" maxlength='120' value='{{content}}'  placeholder-class='placeholder' placeholder=" 最大长度120"></textarea>
+       </view>
+       </view>
+      <view class="sub_hd"> <text class="sub_title">上传</text><text class="sub_button" catchtap='cleanLoad'>重置上传</text></view>
+      <view class='uploadView' ><image style='width:200rpx; height: 200rpx' src='{{imgpath}}' catchtap='bindChooiceImage' mode="aspecFill" ></image></view>
+  
+    <view class="section section_gap">
+<canvas  canvas-id='myCanvas'  hidden='true' ></canvas>
+    </view>
+    <view class="btn-area">
+      <button disabled='{{d1}}' formType="submit">提交回复</button>
+      <button disabled='{{d2}}' bindtap='final'>确认完成</button>
+
+    </view>
+  </form>
+</view>
+  <modal hidden="{{hidden}}" title="为本次服务打分" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm" no-cancel="{{nocancel}}">
+  <block  wx:for="{{stars}}" wx:key="stars-unique">
+      <image class="star-image" style="left: {{item*100}}rpx" src="{{key > item ?(key-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
+        <view class="item" style="left:0rpx" data-key="{{item+0.5}}" bindtap="selectLeft"></view>
+        <view class="item" style="left:40rpx" data-key="{{item+1}}" bindtap="selectRight"></view>
+      </image>
+    </block>
+    <view style='height:100rpx'></view>
+    <view style='display:flex; justify-content:flex-start'>
+    <view style='width:20%'><text>分数：</text></view>
+    <view style='width:40%;display:flex; justify-content:center'><text style='left:150rpx;font-size:45rpx'>{{key}}</text><text>{{key2}}</text></view>
+    </view>
+</modal>
